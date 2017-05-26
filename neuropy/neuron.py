@@ -8,12 +8,13 @@ class Neuron():
     docstring for Neuron.
     """
     def __init__(self, inputs):
-        self.inputs = np.array(inputs)                                               # entradas
+        self.inputs = inputs                                               # entradas
         self.weights = 0                                           # pesos
         self.bias = np.array([1,1])                                                       # bias (x0,w0)
         self.output = "not set"
         self.opfativ = 'sig'
         self.init_weights_uniform()
+        self.out()
 
     """
     Função produto escalar (dot) entradas por pesos. (função de ativação)
@@ -26,9 +27,9 @@ class Neuron():
     das camadas da rede. (implementa: tanh) {alternativas: sigmóide, gaussiana}
     """
     def fativ(self, value, option):
-        if(option=='tan'):
+        if(option == 'tan'):
             return np.tanh(value)
-        elif(option=='sig'):
+        elif(option == 'sig'):
             return 1/(1+np.exp(value*(-1)))
 
     """
